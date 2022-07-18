@@ -67,7 +67,7 @@ session_start();?>
                 
                 </div>
               <?php }?>
-                 <input type="submit" name="button" value="Register" class="button">
+                 <input type="submit" name="button" value="Update" class="button">
 </form>
         
         <?php  

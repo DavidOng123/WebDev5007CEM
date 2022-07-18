@@ -161,5 +161,50 @@ public function updateRes($id,$name,$desc,$contact,$cuisine,$image,$address) {
         $stmt->execute();
              
     } 
+    public function getAllReservation() {
+        $db=new DB();
+        $query="SELECT * FROM history";
+        $stmt= $db->con->prepare($query);
+        $stmt->execute();
+        
+        $res=array();
+        $i=0;
+        while($data=$stmt->fetch(PDO::FETCH_ASSOC)){
+            $res[$i]=array(
+                'id'=>$data['id'],
+                'res_id'=>$data['res_id'],
+                'reserve_id'=>$data['reserve_id'],
+                'date_time'=>$data['date_time'],
+                'pax'=>$data['pax'],
+                'status'=>$data['status']
+            );
+            $i++;
+        
+    }
+    return json_encode($res);
 }
+ public function getAllUser() {
+        $db=new DB();
+        $query="SELECT * FROM user";
+        $stmt= $db->con->prepare($query);
+        $stmt->execute();
+        
+        $res=array();
+        $i=0;
+        while($data=$stmt->fetch(PDO::FETCH_ASSOC)){
+            $res[$i]=array(
+                'username'=>$data['username'],
+                'email'=>$data['email'],
+                'password'=>$data['password'],
+                'mobile_number'=>$data['mobile_number'],
+                'id'=>$data['id']
+            );
+            $i++;
+        
+    }
+    return json_encode($res);
+}
+}
+
+
 ?>
