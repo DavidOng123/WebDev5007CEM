@@ -35,14 +35,27 @@ echo '<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-to
          
         </li>
         
-        <li><input id="input" class="searchbar" type="text" placeholder="Search.." style="  float: right;padding: 6px;order: none;margin-top: 13px;margin-right: 16px;font-size: 25px;"></li>
         <li class="nav-item">
-            
+        <div class="background-one">
+            <div class="link-container">
+        <input id="input" class="searchbar" type="text" placeholder="Search.." style="  float: right;padding: 6px;order: none;margin-top: 13px;margin-right: 16px;font-size: 25px;">
+        </div>
+         </div>
+        </li>
+        
+        <li class="nav-item">
+            <div class="background-one">
+            <div class="link-container">
             <a class="nav-link" >'.$_SESSION['username'].'</a>
+                </div>
+         </div>
         </li>
         <li class="nav-item">
-            
+            <div class="background-one">
+            <div class="link-container">
             <a class="nav-link" href="logoutService.php"><span><button class="w3-button w3-red">Log out</button></span></a>
+              </div>
+         </div>
         </li>
       </ul>
     </div>

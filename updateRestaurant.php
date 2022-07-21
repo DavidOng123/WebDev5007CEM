@@ -58,6 +58,7 @@ session_start();?>
                 <input type="file" class="form-control" name="image" id='image'
                        style="width: 100%;padding:12px 20px; margin:8px 0; box-sizing: border-box;" required>
                 
+                
               </div>
                 <br>
                 <div class="form-group last mb-4">

@@ -103,7 +103,7 @@ th {
            $reserve_id=$_POST['id'];
            $string="UPDATE history SET status='success' WHERE reserve_id='$reserve_id'";
            $result3= mysqli_query($conn, $string);
-           header("reservation.php");
+           
        }
        }
        if(isset($_POST["action"]) ){
@@ -111,7 +111,7 @@ th {
            $reserve_id=$_POST['id'];
            $string="UPDATE history SET status='cancel' WHERE reserve_id='$reserve_id'";
            $result3= mysqli_query($conn, $string);
-           header("reservation.php");
+           
        }
        }
        ?>

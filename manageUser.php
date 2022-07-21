@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+  if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Unauthorized';
+    exit;
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +86,7 @@ session_start();
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                            
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="Index.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -175,7 +183,7 @@ session_start();
         <td><?php echo $row2['cuisine_type'];?></td>
         <td><?php echo $row2['contact'];?></td>
         <td><?php 
-            echo '<form method="post"><button name="deleteOwnerButton" value="'.$row2['res_name'].'" ><span id="label" class="label" ;">Delete</span></button></form>';
+            echo '<form method="post"><button name="deleteOwnerButton" value="'.$row2['res_id'].'" ><span id="label" class="label" ;">Delete</span></button></form>';
        ?></td>
                                 </tr><?php }?>
                                
@@ -218,6 +226,7 @@ session_start();
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
 </body>
 
 </html>
@@ -231,12 +240,12 @@ session_start();
            $result4= mysqli_query($conn, $string2);
        }
        if(isset($_POST['deleteOwnerButton'])){
-           $res_name=$_POST['deleteOwnerButton'];
-           $string="DELETE FROM history WHERE res_name='$res_name'";
+           $res_id=$_POST['deleteOwnerButton'];
+           $string="DELETE FROM history WHERE res_id='$res_id'";
            $result3= mysqli_query($conn, $string);
-           $string2="DELETE FROM restaurant_owner WHERE res_name='$res_name'";
+           $string2="DELETE FROM restaurant_owner WHERE res_id='$res_id'";
            $result4= mysqli_query($conn, $string2);
-           $string3="DELETE FROM restaurant WHERE res_name='$res_name'";
+           $string3="DELETE FROM restaurant WHERE res_id='$res_id'";
            $result5= mysqli_query($conn, $string3);
        }
        ?>

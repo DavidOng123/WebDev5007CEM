@@ -1,3 +1,12 @@
+<?php
+  if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Unauthorized';
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,7 +132,7 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today User</p>
+                                <p class="mb-2">Total User</p>
                                  <?php
                                 
                                 $array3=$api->getAllUser();
@@ -147,8 +156,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Recent Reservation</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">

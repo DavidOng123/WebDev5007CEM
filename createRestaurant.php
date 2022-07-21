@@ -2,6 +2,14 @@
 
 <?php
 session_start();
+
+  if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Unauthorized';
+    exit;
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,14 +88,14 @@ session_start();
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                            
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="Index.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
 
-            <form method="post" action="">
+            <form method="post" action="" enctype="multipart/form-data">
                                 <div class="mb-3">
                                      <label for="res_name" class="form-label">Restaurant name</label>
                                      <input type="text" class="form-control" name="res_name" id="exampleInputEmail1" style="border-color:white;"
